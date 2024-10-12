@@ -7,6 +7,8 @@ import com.nus.iss.login.service.UsernameNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import com.nus.iss.login.service.UserProfileService;
+import com.nus.iss.login.entity.UserProfile;
 
 import java.util.Optional;
 
@@ -15,9 +17,11 @@ import java.util.Optional;
 public class UserController {
 
     private final UserService userService;
+    private final UserProfileService userProfileService;
 
-    public UserController(UserService userService) {
+    public UserController(UserService userService, UserProfileService userProfileService) {
         this.userService = userService;
+        this.userProfileService = userProfileService;
     }
 
     @PostMapping("/login")
@@ -67,6 +71,16 @@ public class UserController {
             }
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("An error occurred while retrieving the user profile.");
+        }
+    }
+
+    @GetMapping("/profile/{userId}")
+    public ResponseEntity<?> getUserProfile(@PathVariable Long userId) {
+        Optional<UserProfile> userProfile = userProfileService.getUserProfileByUserId(userId);
+        if (userProfile.isPresent()) {
+            return ResponseEntity.ok(userProfile.get());
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("User profile not found for user ID: " + userId);
         }
     }
 }

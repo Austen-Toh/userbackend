@@ -1,0 +1,13 @@
+com\nus\iss\login\config\WebConfig$1.class
+com\nus\iss\login\entity\User.class
+com\nus\iss\login\controller\UserController.class
+com\nus\iss\login\controller\LoginRequest.class
+com\nus\iss\login\repository\UserProfileRepository.class
+com\nus\iss\login\service\UsernameNotFoundException.class
+com\nus\iss\login\repository\UserRepository.class
+com\nus\iss\login\Application.class
+com\nus\iss\login\config\WebConfig.class
+com\nus\iss\login\entity\UserProfile.class
+com\nus\iss\login\service\InvalidCredentialsException.class
+com\nus\iss\login\service\UserProfileService.class
+com\nus\iss\login\service\UserService.class
