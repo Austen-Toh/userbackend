@@ -32,7 +32,7 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -t ${{ secrets.AWS_ECR_REPOSITORY_NAME }} ./Login
+          docker build -t ${{ secrets.AWS_ECR_REPOSITORY_NAME }} ./loginBackend
           docker tag ${{ secrets.AWS_ECR_REPOSITORY_NAME }}:latest ${{ secrets.AWS_ECR_REGISTRY }}/${{ secrets.AWS_ECR_REPOSITORY_NAME }}:latest
 
       - name: Push Docker image to Amazon ECR
