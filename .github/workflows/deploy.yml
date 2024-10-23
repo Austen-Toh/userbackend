@@ -25,19 +25,19 @@ jobs:
 
       - name: Log in to Amazon ECR
         run: |
-          aws ecr get-login-password --region ap-southeast-1 | docker login --username AWS --password-stdin 365511340830.dkr.ecr.ap-southeast-1.amazonaws.com
+          aws ecr get-login-password --region ${{ secrets.AWS_REGION }} | docker login --username AWS --password-stdin ${{ secrets.AWS_ECR_REGISTRY }}
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
       - name: Build Docker image
         run: |
-          docker build -t your-docker-image ./loginBackend
-          docker tag your-docker-image:latest 365511340830.dkr.ecr.ap-southeast-1.amazonaws.com/userbackend:latest
+          docker build -t ${{ secrets.AWS_ECR_REPOSITORY_NAME }} ./loginBackend
+          docker tag ${{ secrets.AWS_ECR_REPOSITORY_NAME }}:latest ${{ secrets.AWS_ECR_REGISTRY }}/${{ secrets.AWS_ECR_REPOSITORY_NAME }}:latest
 
       - name: Push Docker image to Amazon ECR
         run: |
-          docker push 365511340830.dkr.ecr.ap-southeast-1.amazonaws.com/userbackend:latest
+          docker push ${{ secrets.AWS_ECR_REGISTRY }}/${{ secrets.AWS_ECR_REPOSITORY_NAME }}:latest
 
       - name: Deploy to Amazon ECS
         run: |
