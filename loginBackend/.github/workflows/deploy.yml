@@ -3,7 +3,7 @@ name: Build and Deploy to ECS
 on:
   push:
     branches:
-      - master  # Trigger on push to master branch
+      - main  # Trigger on push to main branch
 
 jobs:
   build:
