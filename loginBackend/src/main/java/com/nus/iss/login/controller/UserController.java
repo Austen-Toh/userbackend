@@ -75,7 +75,7 @@ public class UserController {
     }
 
     @GetMapping("/profile/{userId}")
-    public ResponseEntity<?> getUserProfile(@PathVariable Long userId) {
+    public ResponseEntity<?> getUserProfile(@PathVariable Integer userId) {
         Optional<UserProfile> userProfile = userProfileService.getUserProfileByUserId(userId);
         if (userProfile.isPresent()) {
             return ResponseEntity.ok(userProfile.get());

@@ -15,7 +15,7 @@ public class UserProfileService {
         this.userProfileRepository = userProfileRepository;
     }
 
-    public Optional<UserProfile> getUserProfileByUserId(Long userId) {
+    public Optional<UserProfile> getUserProfileByUserId(Integer userId) {
         return userProfileRepository.findByUserUserID(userId);
     }
 }

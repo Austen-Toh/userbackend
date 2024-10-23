@@ -9,10 +9,16 @@ public class UserProfile {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long userProfileID;
+    @Column(name = "userProfileID")
+    private Integer userProfileID;
 
+    @Column(name = "profileName")
     private String profileName;
+
+    @Column(name = "email")
     private String email;
+
+    @Column(name = "phone")
     private String phone;
 
     @OneToOne
@@ -20,11 +26,11 @@ public class UserProfile {
     private User user;
 
     // Getters and Setters
-    public Long getUserProfileId() {
+    public Integer getUserProfileId() {
         return userProfileID;
     }
 
-    public void setUserProfileId(Long userProfileID) {
+    public void setUserProfileId(Integer userProfileID) {
         this.userProfileID = userProfileID;
     }
 

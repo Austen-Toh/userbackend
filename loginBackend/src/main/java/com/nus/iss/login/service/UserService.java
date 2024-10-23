@@ -37,7 +37,7 @@ public class UserService {
     public User handleGuestLogin() {
         // Create or retrieve a guest user
         // Example: You might have a predefined user with ID 4 representing a guest
-        Optional<User> guestUser = userRepository.findById(4L);
+        Optional<User> guestUser = userRepository.findById(4);
         if (guestUser.isPresent()) {
             return guestUser.get();
         } else {

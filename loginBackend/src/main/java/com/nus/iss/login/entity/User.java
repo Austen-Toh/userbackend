@@ -7,23 +7,23 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "userID")
-    private Long userID;
+    private Integer userID;
 
     @Column(name = "username")
     private String username;
 
-    @Column(name = "userPassword")  // Map to the correct column name in the database
+    @Column(name = "userPassword")
     private String userPassword;
 
     @Column(name = "roleID")
     private int roleID;
 
     // Getters and setters
-    public Long getUserID() {
+    public Integer getUserID() {
         return userID;
     }
 
-    public void setUserID(Long userID) {
+    public void setUserID(Integer userID) {
         this.userID = userID;
     }
 
