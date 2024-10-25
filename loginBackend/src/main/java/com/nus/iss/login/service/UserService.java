@@ -43,6 +43,7 @@ public class UserService {
         } else {
             return null;
         }
+
     }
 
     public Optional<User> getUserByUsername(String username) {
