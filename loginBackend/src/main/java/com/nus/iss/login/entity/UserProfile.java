@@ -2,9 +2,16 @@ package com.nus.iss.login.entity;
 
 import javax.persistence.*;
 import com.nus.iss.login.entity.UserProfile;
+import javax.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "user_profile")
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class UserProfile {
 
     @Id
